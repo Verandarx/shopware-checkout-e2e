@@ -1,0 +1,15 @@
+{
+  "name": "shopware-checkout-e2e",
+  "version": "1.0.0",
+  "description": "Selenium + Mocha end-to-end test automating guest checkout with Cash on Delivery on the Shopware 6 demo storefront.",
+  "scripts": {
+    "test": "mocha tests/**/*.test.js"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.23.0",
+    "chai": "^4.4.1"
+  },
+  "devDependencies": {
+    "mocha": "^10.6.0"
+  }
+}
