@@ -10,6 +10,11 @@ const selectors = require('../config/selectors');
 class ProductPage extends BasePage {
   async open() {
     await this.driver.get(selectors.productUrl);
+    // A cookie-consent banner covers part of the page on first visit and
+    // physically blocks clicks on elements underneath it (produces a
+    // Selenium ElementClickInterceptedError otherwise) - dismiss it before
+    // interacting with anything else.
+    await this.dismissCookieBannerIfPresent();
   }
 
   async addToCart() {

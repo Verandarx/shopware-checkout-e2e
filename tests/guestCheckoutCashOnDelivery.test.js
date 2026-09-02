@@ -33,7 +33,7 @@ describe('Guest checkout with Cash on Delivery (POS-01)', function () {
     const options = new chrome.Options();
     // Comment out .headless() while you're first verifying selectors —
     // watching the real browser makes it obvious where a selector is wrong.
-    options.addArguments('--headless=new', '--window-size=1366,900');
+    options.addArguments('--window-size=1366,900');
 
     driver = await new Builder()
       .forBrowser('chrome')
@@ -54,8 +54,10 @@ describe('Guest checkout with Cash on Delivery (POS-01)', function () {
 
   it('completes an order end-to-end and shows an order number', async function () {
     // Steps 1-4: open product, add to cart
-    await productPage.open();
+       await productPage.open();
+    await driver.sleep(2000);
     await productPage.addToCart();
+    await driver.sleep(4000);
 
     // Assertion: cart actually received the item before we go further.
     // Catches a real class of Shopware bugs (AJAX add-to-cart silently failing).
